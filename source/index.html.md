@@ -1,189 +1,395 @@
 ---
-title: API Reference
+title: Football club's API Reference
 
-language_tabs:
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
+<!-- includes:
+  - errors -->
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Server's IP: `52.27.15.21`
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+[How to import use Postman's environment for easy work](
+http://blog.appconus.com/2016/04/06/postman-su-dung-bien-moi-truong-de-lam-viec-hieu-qua-hon/)
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Postman v0.2:
 
-# Authentication
+[Football_club_v0.2.postman_collection.json](postman/Football_club_v0.2.postman_collection.json)
 
-> To authorize, use this code:
+Postman's environment file:
 
-```ruby
-require 'kittn'
+[rails.postman_environment.json](postman/rails.postman_environment.json)
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+<!-- # Authentication
 
-```python
-import kittn
+Authentication will be implemented later -->
 
-api = kittn.authorize('meowmeowmeow')
-```
+# Posts
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+## Get Posts with paging
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> The response JSON structured for `status` post:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "meta": {
+    "total": 6,
+    "limit": 2,
+    "page": 1
+  },
+  "data": [
+    {
+      "id": 51,
+      "message": "Cron 2",
+      "facebook_id": "478454982341646_532549640265513",
+      "facebook_created_time": "2016-06-13 15:46:51 +0700",
+      "facebook_updated_time": "2016-06-13 15:46:51 +0700",
+      "facebook_post_type": "status",
+      "created_at": "2016-06-13 17:32:50 +0700",
+      "updated_at": "2016-06-13 17:32:50 +0700",
+      "page": {
+        "id": 3,
+        "facebook_id": "478454982341646",
+        "name": "Vinh.nguyen.it",
+        "created_at": "2016-06-13 17:10:13 +0700",
+        "updated_at": "2016-06-13 17:10:13 +0700",
+        "club": {
+          "id": 3,
+          "code": "lv",
+          "name": "Livepool",
+          "created_at": "2016-06-13 17:10:13 +0700",
+          "updated_at": "2016-06-13 17:10:13 +0700"
+        }
+      }
+    },
+    {
+      ...
+    }
+  ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
+> The response JSON structured for `photo` post:
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+```json
+{
+  "meta": {
+    "total": 37,
+    "limit": 2,
+    "page": 1
+  },
+  "data": [
+    {
+      "link": "https://www.facebook.com/vinhnguyenduc.it.vn/photos/a.478458952341249.1073741827.478454982341646/532536066933537/?type=3",
+      "object_id": "532536066933537",
+      "full_picture": "https://scontent.xx.fbcdn.net/v/t1.0-9/q85/s720x720/13423901_532536066933537_8534472880852895771_n.jpg?oh=b1dfab1d2b9cf62b7942942329a9504d&oe=580F94F1",
+      "id": 53,
+      "message": "Hơi sương",
+      "facebook_id": "478454982341646_532536066933537",
+      "facebook_created_time": "2016-06-13 14:45:45 +0700",
+      "facebook_updated_time": "2016-06-13 14:45:45 +0700",
+      "facebook_post_type": "photo",
+      "created_at": "2016-06-13 17:32:50 +0700",
+      "updated_at": "2016-06-13 17:32:50 +0700",
+      "page": {
+        "id": 3,
+        "facebook_id": "478454982341646",
+        "name": "Vinh.nguyen.it",
+        "created_at": "2016-06-13 17:10:13 +0700",
+        "updated_at": "2016-06-13 17:10:13 +0700",
+        "club": {
+          "id": 3,
+          "code": "lv",
+          "name": "Livepool",
+          "created_at": "2016-06-13 17:10:13 +0700",
+          "updated_at": "2016-06-13 17:10:13 +0700"
+        }
+      },
+      "photos": [
+        {
+          "id": 63,
+          "width": 540,
+          "height": 720,
+          "parentable_id": "53",
+          "parentable_type": "Post",
+          "created_at": "2016-06-13 17:32:50 +0700",
+          "updated_at": "2016-06-13 17:32:50 +0700",
+          "resized_photos": [
+            {
+              "id": 387,
+              "photo_id": 63,
+              "width": 1536,
+              "height": 2048,
+              "created_at": "2016-06-13 17:32:50 +0700",
+              "updated_at": "2016-06-13 17:32:50 +0700"
+            },
+            {
+              ...
+            }
+          ]
+        }
+      ]
+    },
+    {
+      ...
+    }
+  ]
+}
+```
+
+> The response JSON structured for `video` post:
+
+```json
+{
+  "meta": {
+    "total": 3,
+    "limit": 2,
+    "page": 1
+  },
+  "data": [
+    {
+      "source": "https://video.xx.fbcdn.net/v/t42.1790-2/13262963_245998835791112_1789496047_n.mp4?efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9zZCJ9&rl=664&vabr=369&oh=4dcd9765e249bdab5d07d1ea0df49a54&oe=5760DCFF",
+      "name": null,
+      "link": "https://www.facebook.com/vinhnguyenduc.it.vn/videos/523240997863044/",
+      "object_id": null,
+      "full_picture": "https://fbcdn-vthumb-a.akamaihd.net/hvthumb-ak-xft1/v/t15.0-10/s720x720/13178358_523241231196354_1010402047_n.jpg?oh=e5fde22a3918865cd5f7a696ce382adb&oe=57CFE919&__gda__=1477322409_ce75594fa46bc13f3b0afcc25e237829",
+      "id": 58,
+      "message": "test share own video",
+      "facebook_id": "478454982341646_523242414529569",
+      "facebook_created_time": "2016-05-18 22:21:23 +0700",
+      "facebook_updated_time": "2016-05-18 22:21:23 +0700",
+      "facebook_post_type": "video",
+      "created_at": "2016-06-13 17:32:51 +0700",
+      "updated_at": "2016-06-13 17:32:51 +0700",
+      "page": {
+        "id": 3,
+        "facebook_id": "478454982341646",
+        "name": "Vinh.nguyen.it",
+        "created_at": "2016-06-13 17:10:13 +0700",
+        "updated_at": "2016-06-13 17:10:13 +0700",
+        "club": {
+          "id": 3,
+          "code": "lv",
+          "name": "Livepool",
+          "created_at": "2016-06-13 17:10:13 +0700",
+          "updated_at": "2016-06-13 17:10:13 +0700"
+        }
+      },
+      "photos": []
+    },
+    {
+      ...
+    }
+  ]
+}
+```
+> The response JSON structured for `link` post:
+
+```json
+{
+  "meta": {
+    "total": 2,
+    "limit": 2,
+    "page": 1
+  },
+  "data": [
+    {
+      "source": null,
+      "name": null,
+      "link": "http://mp3.zing.vn/album/Nhac-Hay-Nhat-Cua-Hoaprox-Hoaprox/ZWZCW7EW.html",
+      "object_id": null,
+      "full_picture": "https://fbexternal-a.akamaihd.net/safe_image.php?d=AQA17hH1mVr61DWB&url=http%3A%2F%2Fimage.mp3.zdn.vn%2Fcovers%2F3%2Fb%2F3b52d65a1cedaca4cbf00f0aa911d91e_1452848968.jpg",
+      "id": 60,
+      "message": "Test post mp3 link http://mp3.zing.vn/album/Nhac-Hay-Nhat-Cua-Hoaprox-Hoaprox/ZWZCW7EW.html",
+      "facebook_id": "478454982341646_523240464529764",
+      "facebook_created_time": "2016-05-18 22:12:20 +0700",
+      "facebook_updated_time": "2016-05-18 22:12:20 +0700",
+      "facebook_post_type": "link",
+      "created_at": "2016-06-13 17:32:51 +0700",
+      "updated_at": "2016-06-13 17:32:51 +0700",
+      "page": {
+        "id": 3,
+        "facebook_id": "478454982341646",
+        "name": "Vinh.nguyen.it",
+        "created_at": "2016-06-13 17:10:13 +0700",
+        "updated_at": "2016-06-13 17:10:13 +0700",
+        "club": {
+          "id": 3,
+          "code": "lv",
+          "name": "Livepool",
+          "created_at": "2016-06-13 17:10:13 +0700",
+          "updated_at": "2016-06-13 17:10:13 +0700"
+        }
+      },
+      "photos": []
+    },
+    {
+      ...
+    }
+  ]
+}
+```
+This endpoint retrieves all specific posts type.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET {{base_url}}/api/v1/posts?facebook_post_type=?&page=?&limit=?&page_ids[]=?`
 
-### URL Parameters
+### Query Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Parameter | Type | Required | Description
+--------- | -------- | -------- | -----------
+facebook_post_type | String |  | one of (`status` `photo` `video` `link`), default: `status`
+page | Integer |  | The page index for paging
+limit | Integer |  | Number of items for paging
+page_ids[] | Integer | Yes | Can be multiple, ex: `page_ids[]=1&page_ids[]=2&page_ids[]=3`
 
+### Error
+
+HTTP Code | Server code | Message | Description
+--------- | ----------- | ------- | -----------
+400 | 1000 | The following param(s) are missed: page_ids | `page_ids[]` param is missed
+400 | 1000 | Pagging out of scope!!! | Given total posts are 10. Then you pass `page=5` and `limit=5`.
+
+# Pages
+## All pages for specific club
+
+> The response JSON structured :
+
+```json
+{
+  "meta": {
+    "total": 2,
+    "limit": 10,
+    "page": 1
+  },
+  "data": [
+    {
+      "id": 3,
+      "facebook_id": "478454982341646",
+      "name": "Vinh.nguyen.it",
+      "created_at": "2016-06-13 17:10:13 +0700",
+      "updated_at": "2016-06-13 17:10:13 +0700",
+      "club": {
+        "id": 3,
+        "code": "lv",
+        "name": "Livepool",
+        "created_at": "2016-06-13 17:10:13 +0700",
+        "updated_at": "2016-06-13 17:10:13 +0700"
+      }
+    },
+    {
+      "id": 4,
+      "facebook_id": "675477879173728",
+      "name": "HelloWorld",
+      "created_at": "2016-06-13 17:10:13 +0700",
+      "updated_at": "2016-06-13 17:10:13 +0700",
+      "club": {
+        "id": 3,
+        "code": "lv",
+        "name": "Livepool",
+        "created_at": "2016-06-13 17:10:13 +0700",
+        "updated_at": "2016-06-13 17:10:13 +0700"
+      }
+    }
+  ]
+}
+```
+
+Retreive all pages in specific club
+
+### HTTP Request
+
+`GET {{base_url}}/api/v1/pages?club_id=?`
+
+### Query Parameters
+
+Parameter | Type | Required | Description
+--------- | -------- | -------- | -----------
+club_id | Integer | X | Club's id
+
+### Error
+
+HTTP Code | Server code | Message | Description
+--------- | ----------- | ------- | -----------
+400 | 1000 | The following param(s) are missed: club_id | `club_id` param is missed
+404 | 404 | Couldn't find Club with 'id'=xxx | `club_id` is invalid
+
+## Page's detail
+
+> The response JSON structured :
+
+```json
+{
+  "id": 3,
+  "facebook_id": "478454982341646",
+  "name": "Vinh.nguyen.it",
+  "created_at": "2016-06-13 17:10:13 +0700",
+  "updated_at": "2016-06-13 17:10:13 +0700",
+  "club": {
+    "id": 3,
+    "code": "lv",
+    "name": "Livepool",
+    "created_at": "2016-06-13 17:10:13 +0700",
+    "updated_at": "2016-06-13 17:10:13 +0700"
+  }
+}
+```
+
+Retreive page's detail
+
+### HTTP Request
+
+`GET {{base_url}}/api/v1/pages/{id}`
+
+### Query Parameters
+
+Parameter | Type | Required | Description
+--------- | -------- | -------- | -----------
+id | Integer | X | Page's id
+
+### Error
+
+HTTP Code | Server code | Message | Description
+--------- | ----------- | ------- | -----------
+404 | 404 | Couldn't find Page with 'id'=xxx | `id` is invalid
+
+
+# Clubs
+## All clubs
+
+> The response JSON structured :
+
+```json
+{
+  "meta": {
+    "total": 2,
+    "limit": 10,
+    "page": 1
+  },
+  "data": [
+    {
+      "id": 3,
+      "code": "lv",
+      "name": "Livepool",
+      "created_at": "2016-06-13 17:10:13 +0700",
+      "updated_at": "2016-06-13 17:10:13 +0700"
+    },
+    {
+      "id": 4,
+      "code": "mu",
+      "name": "Manchester United",
+      "created_at": "2016-06-13 17:10:13 +0700",
+      "updated_at": "2016-06-13 17:10:13 +0700"
+    }
+  ]
+}
+```
+
+Retreive all clubs
+
+### HTTP Request
+
+`GET {{base_url}}/api/v1/clubs`
