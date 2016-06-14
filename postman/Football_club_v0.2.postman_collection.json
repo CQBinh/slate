@@ -1,0 +1,260 @@
+{
+	"id": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+	"name": "Football club",
+	"description": "",
+	"order": [
+		"8891eae6-d2be-cee3-682c-cd6ed3fddb78"
+	],
+	"folders": [
+		{
+			"id": "3195b417-b91f-b98d-751b-a3e6a469890d",
+			"name": "Club",
+			"description": "",
+			"order": [
+				"4ff391c3-6a30-2dff-81d8-019f659fd0b2"
+			],
+			"owner": "108901"
+		},
+		{
+			"id": "bf42fac6-70de-28ff-b698-196bd0c524a1",
+			"name": "Facebook authorize",
+			"description": "",
+			"order": [
+				"c0848826-6272-1b1c-f718-20d338a3de06",
+				"7657c518-12dc-4a36-bf9d-3bc39504c1db"
+			],
+			"owner": "108901"
+		},
+		{
+			"id": "d73b449c-535a-8618-da3b-92063efd6305",
+			"name": "Page",
+			"description": "",
+			"order": [
+				"73348ebe-ae99-4d68-a887-52beb9778d76",
+				"121ebe3c-ccf3-410f-f892-6fa94908ba49"
+			],
+			"owner": "108901"
+		},
+		{
+			"id": "c913203d-a822-7c95-9976-82fd81f36040",
+			"name": "Photo",
+			"description": "",
+			"order": [
+				"45ecf270-c92e-05f5-6fe7-15040e094297"
+			],
+			"owner": "108901"
+		},
+		{
+			"id": "63d772e4-b30d-68ad-9c1f-fb7bb6bb6e12",
+			"name": "Post",
+			"description": "",
+			"order": [
+				"ee210b4c-ba46-0a9a-d16e-36e4d6524edc",
+				"20b907ef-c97d-53bc-e147-8920a708aae7"
+			]
+		},
+		{
+			"id": "7347809b-7604-b460-9d2b-a6302e66f98f",
+			"name": "Resized Photo",
+			"description": "",
+			"order": [
+				"30b9ac00-d447-d0c3-a919-dfdd89f121f7"
+			],
+			"owner": "108901"
+		}
+	],
+	"timestamp": 1463514893635,
+	"owner": "108901",
+	"remoteLink": null,
+	"public": false,
+	"requests": [
+		{
+			"id": "121ebe3c-ccf3-410f-f892-6fa94908ba49",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/pages/2",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"data": null,
+			"dataMode": "params",
+			"name": "Show page",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464428352670,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "d73b449c-535a-8618-da3b-92063efd6305"
+		},
+		{
+			"id": "20b907ef-c97d-53bc-e147-8920a708aae7",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/posts",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464428323788,
+			"name": "All post",
+			"description": "",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"responses": []
+		},
+		{
+			"id": "30b9ac00-d447-d0c3-a919-dfdd89f121f7",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/resized_photos?photo_id=178",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464517784896,
+			"name": "All from specific photo",
+			"description": "",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"responses": []
+		},
+		{
+			"id": "45ecf270-c92e-05f5-6fe7-15040e094297",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/photos?parentable_id=148&parentable_type=Post",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464517819848,
+			"name": "All Photo from a parent",
+			"description": "",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"responses": []
+		},
+		{
+			"id": "4ff391c3-6a30-2dff-81d8-019f659fd0b2",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/clubs",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"data": null,
+			"dataMode": "params",
+			"name": "all",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1463515020054,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "3195b417-b91f-b98d-751b-a3e6a469890d"
+		},
+		{
+			"id": "73348ebe-ae99-4d68-a887-52beb9778d76",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/pages?club_id=1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464457914011,
+			"name": "All",
+			"description": "",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"responses": []
+		},
+		{
+			"folder": "bf42fac6-70de-28ff-b698-196bd0c524a1",
+			"id": "7657c518-12dc-4a36-bf9d-3bc39504c1db",
+			"name": "push subscriptions",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "https://62a61c5d.ngrok.io/api/v1/subscriptions?hub.mode=subscribe&hub.challenge=0909&hub.verify_token=foobar",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5"
+		},
+		{
+			"id": "8891eae6-d2be-cee3-682c-cd6ed3fddb78",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/subscriptions/setup",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"data": null,
+			"dataMode": "params",
+			"name": "Setup",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1464426117962,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c0848826-6272-1b1c-f718-20d338a3de06",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/subscriptions?hub.mode=subscribe&hub.challenge=996696&hub.verify_token=foobar",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1463666022833,
+			"name": "Confirm subscriptions",
+			"description": "",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5",
+			"responses": []
+		},
+		{
+			"id": "ee210b4c-ba46-0a9a-d16e-36e4d6524edc",
+			"headers": "",
+			"url": "{{base_url}}/api/v1/posts?facebook_post_type=photo&page=1&limit=2&page_ids[]=1&page_ids[]=2&page_ids[]=3",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464452959241,
+			"name": "get with paging",
+			"description": "",
+			"collectionId": "ffd36e33-247b-8342-ba58-d6c3d9dd9ba5"
+		}
+	]
+}
